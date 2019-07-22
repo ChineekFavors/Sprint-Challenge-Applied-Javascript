@@ -11,21 +11,23 @@
 const promise = axios.get('https://lambda-times-backend.herokuapp.com/topics');
 promise
 	.then(response => {	
-		console.log(response.data.topics);
-		const tab = response.data.topics;
-		tab.forEach(tab => tabComponent(tab));	
+		tabElements = response.data.topics;
+			tabElements.forEach((element) =>{
+			tabComponent(element)
+		});	
 	})
 	.catch(error => {
 		console.log ('error:', error);
 	})
-
-function tabComponent(tab){
-
-	const tabs = document.querySelector('.topics');
-	console.log(tab);
-	const div = document.createElement('div');
-	div.classList.add('.tab');
-	div.textContent = tab;
 	
+	
+
+function tabComponent(textContent){
+	const tabs = document.querySelector('.topics');		
+	const div = document.createElement('div');
+	div.classList.add('tab');
+	div.textContent = textContent;
 	return tabs.appendChild(div);
 }
+
+
