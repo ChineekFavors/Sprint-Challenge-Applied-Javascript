@@ -33,7 +33,7 @@ function Header() {
 	//adding text content
 	span.textContent = `SMARCH 28, 2019`;
 	h1.textContent = 'Lambda Times';
-	span2.textContent = `98`;
+	span2.textContent = "98\xB0";
 
 
 	return head.appendChild(divHeader);
